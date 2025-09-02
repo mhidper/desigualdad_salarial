@@ -21,5 +21,6 @@ Es necesario tener un entorno de Python con las siguientes librerías instaladas
 - `numpy`
 - `patoolib`
 - `jupyter`
+- `pyarrow`
 
 Se recomienda crear un entorno virtual y gestionar las dependencias.
