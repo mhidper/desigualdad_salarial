@@ -2,7 +2,7 @@
 * Project: OBSERVATORIO LA CAIXA
 * estructura productiva.do
 /*Hacemos match con la CEDEFOP y trabajo la EES
-para generar gráficos y análisis para la presentaciín
+para generar grï¿½ficos y anï¿½lisis para la presentaciï¿½n
 */
 * 24/02/2021, version 1
 * Manuel Alejandro Hidalgo (Universidad Pablo de Olavide)
@@ -73,7 +73,7 @@ replace edad=2 if edad==1
 sort cestudio edad cno act
 
 
-*Gráficos desigualdad (C:\Users\alejh\Dropbox\CONSULTORIA\Observatorio La Caixa\EXCEL\figuras descriptivas.xlsx)
+*Grï¿½ficos desigualdad (C:\Users\alejh\Dropbox\CONSULTORIA\Observatorio La Caixa\EXCEL\figuras descriptivas.xlsx)
 
 *Figura 1
 
@@ -120,7 +120,7 @@ twoway line d1014 d1418 d1018 percentiles if percentiles<98
 
 
 
-*VARIANZA TOTAL POR AÑO
+*VARIANZA TOTAL POR Aï¿½O
 ************************
 
 *genero rif
@@ -131,7 +131,7 @@ drop rif_var
 tab year [aw=factotal], sum(lsalmes)
 
 
-*por grupos para within (gráfico hoja excel "within por variables" y "between por variables")
+*por grupos para within (grï¿½fico hoja excel "within por variables" y "between por variables")
 
 by year, sort: egen rif_var=rifvar(lsalmes), var
 
@@ -165,7 +165,7 @@ tabstat rif_var_s* [aw=factotal], by(year)
 
 
 
-*POLARIZACIÓN
+*POLARIZACIï¿½N
 ***********************************************
 
 egen codigo=group(secc cno)
@@ -253,7 +253,7 @@ kdensity lsalmes [aw=factotal] if year==2018 & contrato==2, at(kd_x) gen(kd_x2 k
 kdensity lsalmes [aw=factotal] if year==2018 & contrato==3, at(kd_x) gen(kd_x3 kd_n3)
 kdensity lsalmes [aw=factotal] if year==2018 & contrato==4, at(kd_x) gen(kd_x4 kd_n4)
 
-*Evolución del tipo de contrato por percentiles
+*Evoluciï¿½n del tipo de contrato por percentiles
 *************************************************************************
 local i = 5
 	while `i'<= 95 {
@@ -288,7 +288,7 @@ collapse contrato* horas [aw=factotal], by(p10 p18)
 
 restore
 
-/*Gráfico donde se descuenta de la varianza within por sectores original la causada por ocupación y contratos y gr´ñafico donde se relaciona
+/*Grï¿½fico donde se descuenta de la varianza within por sectores original la causada por ocupaciï¿½n y contratos y grï¿½ï¿½afico donde se relaciona
 la desigualdad sectorial y tipo de contratos*/
 
 *hoja de "within por variables"
@@ -299,9 +299,9 @@ tabstat rif_var_s* [aw=factotal] if year==2018, by(secc)
 tabstat contrato1 contrato2 contrato3 contrato4[aw=factotal] if year==2010, by(secc)
 tabstat contrato1 contrato2 contrato3 contrato4[aw=factotal] if year==2018, by(secc)
 
-*POR SECTORES /Analizo qué variables eliminan mayor parte de within por sectores. Estimado residual wage_inq*/
-/*la parte que explica cada variable será el resultado de multiplicar cada coeficiente obtenido de la regresión
-con la rif con el valor medio de cada característica incluida en le regresión
+*POR SECTORES /Analizo quï¿½ variables eliminan mayor parte de within por sectores. Estimado residual wage_inq*/
+/*la parte que explica cada variable serï¿½ el resultado de multiplicar cada coeficiente obtenido de la regresiï¿½n
+con la rif con el valor medio de cada caracterï¿½stica incluida en le regresiï¿½n
 
 bar(Y)= beta*bar(X)
 
@@ -368,7 +368,7 @@ tab contrato [aw=factotal] if year==2018, sum(lsalmes)
 
 
 
-*Figura 5. Gráfico coeficienst Oaxaca ampliado
+*Figura 5. Grï¿½fico coeficienst Oaxaca ampliado
 
 drop if year==2014
 
@@ -429,7 +429,7 @@ conv_2-conv_5 market2-market4 tipopais horas control [aw=factotal] if year==2010
 		ocupacion: ocup1-ocup16, estudios: estudios1-estudios6, trabajador: anoanti anoanti2 sexo, ///
 		empresa: conv_1-conv_5 market1-market4 tipopais control) pooled relax by(jovenes) swap
 
-*Género
+*Gï¿½nero
 
 *2018
 
@@ -500,7 +500,7 @@ kk
 
 
 
-*Figura 2. Aportación desigualdad 2010 - 2018 por sectores
+*Figura 2. Aportaciï¿½n desigualdad 2010 - 2018 por sectores
 
 preserve
 
